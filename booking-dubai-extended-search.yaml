@@ -1,0 +1,106 @@
+android:
+  deviceId: 98.98.125.9:21059
+  launch: https://www.booking.com
+
+tasks:
+  - name: "Search for hotels in Dubai (June 25-26, 2 adults)"
+    flow:
+      - sleep: 5000
+      - ai: "In the text input with current value 'e.g. city, region, district or specific hotel', type 'Dubai'"
+      - sleep: 1500
+      - ai: "tap on the first suggestion for 'Dubai'"
+      - sleep: 1000
+      - ai: "tap to select check-in and check-out dates"
+      - sleep: 1000
+      - ai: "select the 25th as the check-in date"
+      - sleep: 800
+      - ai: "select the 26th as the check-out date and confirm"
+      - sleep: 1000
+      - ai: "tap on the number of guests to change it"
+      - sleep: 1000
+      - ai: "ensure adults is set to 2 and confirm selection"
+      - sleep: 1000
+      - ai: "tap the search button to find hotels"
+      - sleep: 5000
+
+  - name: "Browse Hotel 1"
+    flow:
+      - ai: "tap on the first hotel in the search results"
+      - sleep: 4000
+      - ai: "tap on the main image to open the photo gallery"
+      - sleep: 2000
+      - ai: "swipe left 4 times to look at different images"
+      - sleep: 3000
+      - ai: "close the photo gallery"
+      - sleep: 1500
+      - ai: "scroll down to the 'Available rooms' section"
+      - sleep: 2500
+      - ai: "scroll down to the 'Guest reviews' section"
+      - sleep: 3000
+      - ai: "tap the back button to return to search results"
+      - sleep: 2500
+
+  - name: "Browse Hotel 2"
+    flow:
+      - ai: "tap on the second hotel in the search results"
+      - sleep: 4000
+      - ai: "tap on the hotel pictures to see more"
+      - sleep: 2000
+      - ai: "swipe through about 5 images"
+      - sleep: 3000
+      - ai: "go back from the image view"
+      - sleep: 1500
+      - ai: "scroll down to check rooms and prices"
+      - sleep: 2500
+      - ai: "scroll to read some guest reviews"
+      - sleep: 3000
+      - ai: "go back to the search results page"
+      - sleep: 2500
+
+  - name: "Browse Hotel 3"
+    flow:
+      - ai: "scroll down and tap on the next available hotel"
+      - sleep: 4000
+      - ai: "view the hotel's image gallery and look at 3 photos"
+      - sleep: 4000
+      - ai: "close the image gallery"
+      - sleep: 1500
+      - ai: "scroll down the page to find the available rooms"
+      - sleep: 2500
+      - ai: "scroll down past the rooms to see what people are saying in the reviews"
+      - sleep: 3000
+      - ai: "navigate back to the hotel list"
+      - sleep: 2500
+
+  - name: "Browse Hotel 4"
+    flow:
+      - ai: "scroll down the page a bit more"
+      - sleep: 1500
+      - ai: "tap on another hotel that catches my eye"
+      - sleep: 4000
+      - ai: "open the photo gallery and swipe through a few pictures"
+      - sleep: 3500
+      - ai: "close the photo viewer"
+      - sleep: 1500
+      - ai: "scroll down to see room availability"
+      - sleep: 2500
+      - ai: "scroll down to the reviews"
+      - sleep: 3000
+      - ai: "go back to the list of hotels"
+      - sleep: 2500
+
+  - name: "Browse Hotel 5"
+    flow:
+      - ai: "tap on the next hotel in the list"
+      - sleep: 4000
+      - ai: "look at 5 pictures of the hotel"
+      - sleep: 4000
+      - ai: "go back to the hotel details page"
+      - sleep: 1500
+      - ai: "scroll down to check the prices of the rooms"
+      - sleep: 2500
+      - ai: "scroll down to the guest reviews section"
+      - sleep: 3000
+      - ai: "return to the search results"
+      - sleep: 2500
+      - aiAssert: "the screen shows a list of hotels in Dubai" 

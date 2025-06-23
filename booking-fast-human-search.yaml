@@ -1,0 +1,49 @@
+android:
+  deviceId: 98.98.125.9:29640
+  launch: https://www.booking.com
+
+tasks:
+  - name: "Enter search criteria"
+    flow:
+      - sleep: 3000
+      - ai: "In the text input with current value 'e.g. city, region, district or specific hotel', type 'Dubai'"
+      - sleep: 1500
+      - ai: "tap on the first suggestion for 'Dubai'"
+      - sleep: 1000
+      - ai: "select '25' for the check-in date"
+      - sleep: 500
+      - ai: "select '26' for the check-out date and tap the confirm button"
+      - sleep: 1000
+      - ai: "tap on the number of guests to change it"
+      - sleep: 1000
+      - ai: "ensure adults is set to 2 and tap the apply button"
+      - sleep: 1000
+      - ai: "tap the search button"
+      - sleep: 5000
+
+  - name: "Browse first hotel"
+    flow:
+      - ai: "tap on the first hotel in the list"
+      - sleep: 4000
+      - ai: "tap on the hotel pictures to open the gallery"
+      - sleep: 2000
+      - ai: "swipe left to see the next photo"
+      - sleep: 1000
+      - ai: "close the photo gallery"
+      - sleep: 1500
+      - ai: "scroll down to view the rooms"
+      - sleep: 2000
+      - ai: "tap the back button to return to the search results"
+      - sleep: 3000
+
+  - name: "Browse second hotel"
+    flow:
+      - ai: "scroll down the list"
+      - sleep: 1500
+      - ai: "tap on the next hotel in the list"
+      - sleep: 4000
+      - ai: "scroll down to the guest reviews section"
+      - sleep: 3000
+      - ai: "tap the back button"
+      - sleep: 2000
+      - aiAssert: "the screen shows a list of hotels" 

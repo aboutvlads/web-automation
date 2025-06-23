@@ -1,0 +1,7 @@
+android:
+  deviceId: 98.98.125.9:21059
+
+tasks:
+  - name: Execute user prompt
+    flow:
+      - ai: "search for hotels in dubai on booking.com" 

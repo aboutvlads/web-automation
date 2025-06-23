@@ -1,0 +1,124 @@
+android:
+  deviceId: 98.98.125.9:21059
+  launch: https://www.booking.com
+
+tasks:
+  - name: Search for Dubai hotels
+    flow:      
+      # Wait for page to load
+      - sleep: 3000
+      
+      # Search for Dubai
+      - ai: "tap on the destination search box and type 'Dubai'"
+      - sleep: 1500
+      - ai: "select Dubai from the dropdown suggestions"
+      - sleep: 800
+      
+      # Set check-in date (June 24)
+      - ai: "tap on the check-in date field"
+      - sleep: 1000
+      - ai: "select June 24th as check-in date"
+      - sleep: 800
+      
+      # Set check-out date (June 25) 
+      - ai: "select June 25th as check-out date"
+      - sleep: 800
+      
+      # Set guests to 2 adults
+      - ai: "tap on guests selector and set it to 2 adults"
+      - sleep: 1000
+      
+      # Search
+      - ai: "tap the search button to find hotels"
+      - sleep: 4000
+
+  - name: Browse hotels like a real person
+    flow:
+      # Look at the first few hotels briefly
+      - ai: "scroll down slowly to see more hotel options"
+      - sleep: 2000
+      
+      # Click on first hotel to check details
+      - ai: "tap on the first hotel in the search results"
+      - sleep: 3000
+      
+      # Browse images quickly
+      - ai: "tap on hotel images to view photo gallery"
+      - sleep: 2500
+      - ai: "swipe through 2-3 hotel photos quickly"
+      - sleep: 1800
+      
+      # Check room options briefly
+      - ai: "scroll down to see available rooms and prices"
+      - sleep: 2000
+      
+      # Go back to search results
+      - ai: "go back to search results or tap back button"
+      - sleep: 2000
+      
+      # Look at second hotel
+      - ai: "tap on the second hotel in the search results"
+      - sleep: 3000
+      
+      # Quick browse of second hotel
+      - ai: "look at hotel photos briefly"
+      - sleep: 2000
+      - ai: "scroll to check room types and amenities"
+      - sleep: 1800
+      
+      # Go back and check third hotel
+      - ai: "go back to search results"
+      - sleep: 1500
+      
+      - ai: "scroll down and tap on the third hotel option"
+      - sleep: 3000
+      
+      # Browse third hotel more thoroughly as if interested
+      - ai: "view hotel image gallery"
+      - sleep: 2200
+      - ai: "swipe through multiple hotel photos"
+      - sleep: 2800
+      
+      # Check rooms and amenities
+      - ai: "scroll down to see room options and facilities"
+      - sleep: 2500
+      - ai: "check hotel amenities and guest reviews"
+      - sleep: 3000
+      
+      # Simulate reading reviews briefly
+      - ai: "scroll to guest reviews section"
+      - sleep: 2000
+      
+      # Go back to results to compare more options
+      - ai: "go back to search results to compare with other hotels"
+      - sleep: 2000
+
+  - name: Continue browsing and comparison
+    flow:
+      # Scroll to see more hotels
+      - ai: "scroll down to see more hotel options on the results page"
+      - sleep: 2000
+      
+      # Filter or sort results like a real user might
+      - ai: "try to sort hotels by price or rating if filter options are available"
+      - sleep: 2500
+      
+      # Check one more hotel
+      - ai: "tap on another hotel that looks interesting"
+      - sleep: 3000
+      
+      # Quick review of this hotel
+      - ai: "quickly browse hotel photos and room options"
+      - sleep: 2500
+      - ai: "check the price and availability"
+      - sleep: 2000
+      
+      # Final comparison behavior
+      - ai: "go back to search results for final comparison"
+      - sleep: 1500
+      
+      # Simulate final decision-making scroll
+      - ai: "scroll up and down to compare the hotels viewed"
+      - sleep: 3000
+      
+      - aiAssert: "the screen shows Dubai hotel search results with multiple hotel options, prices, and ratings visible" 

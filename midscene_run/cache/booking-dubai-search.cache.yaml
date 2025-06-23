@@ -1,0 +1,27 @@
+midsceneVersion: 0.17.1
+cacheId: booking-dubai-search
+caches:
+  - type: locate
+    prompt: Where are you going?
+    xpaths:
+      - //*[@id=":rh:"]
+  - type: locate
+    prompt: Where are you going?
+    xpaths:
+      - //*[@id=":rh:"]
+  - type: plan
+    prompt: click on the destination search box and type 'Dubai'
+    yamlWorkflow: |
+      tasks:
+        - name: click on the destination search box and type 'Dubai'
+          flow:
+            - aiTap: Where are you going?
+            - aiInput: Dubai
+              locate: Where are you going?
+  - type: plan
+    prompt: select Dubai from the dropdown suggestions
+    yamlWorkflow: |
+      tasks:
+        - name: select Dubai from the dropdown suggestions
+          flow:
+            - aiTap: Dubai, Dubai Emirate, United Arab Emirates

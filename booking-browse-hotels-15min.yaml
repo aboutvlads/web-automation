@@ -1,0 +1,348 @@
+android:
+  deviceId: "98.98.125.9:29640"
+
+tasks:
+  - name: "Browse Hotel 1"
+    flow:
+      - sleep: 3000
+      - ai: "scroll down once"
+      - sleep: 2000
+      - ai: "tap on any hotel"
+      - sleep: 3000
+      # Browse 15 hotel images
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      # Scroll down to see room details
+      - ai: "scroll down to see room details"
+      - sleep: 2000
+      - ai: "scroll down to see more room details"
+      - sleep: 2000
+      - ai: "scroll down to see room prices"
+      - sleep: 2000
+      # Go back to search results
+      - ai: "tap back button to return to search results"
+      - sleep: 3000
+
+  - name: "Browse Hotel 2"
+    flow:
+      - ai: "scroll down randomly"
+      - sleep: 2000
+      - ai: "tap on any hotel"
+      - sleep: 3000
+      # Browse 15 hotel images
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      # Scroll down to see room details
+      - ai: "scroll down to see room details"
+      - sleep: 2000
+      - ai: "scroll down to see more room details"
+      - sleep: 2000
+      - ai: "scroll down to see room prices"
+      - sleep: 2000
+      # Go back to search results
+      - ai: "tap back button to return to search results"
+      - sleep: 3000
+
+  - name: "Browse Hotel 3"
+    flow:
+      - ai: "scroll down randomly"
+      - sleep: 2000
+      - ai: "tap on any hotel"
+      - sleep: 3000
+      # Browse 15 hotel images
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      # Scroll down to see room details
+      - ai: "scroll down to see room details"
+      - sleep: 2000
+      - ai: "scroll down to see more room details"
+      - sleep: 2000
+      - ai: "scroll down to see room prices"
+      - sleep: 2000
+      # Go back to search results
+      - ai: "tap back button to return to search results"
+      - sleep: 3000
+
+  - name: "Browse Hotel 4"
+    flow:
+      - ai: "scroll down randomly"
+      - sleep: 2000
+      - ai: "tap on any hotel"
+      - sleep: 3000
+      # Browse 15 hotel images
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      # Scroll down to see room details
+      - ai: "scroll down to see room details"
+      - sleep: 2000
+      - ai: "scroll down to see more room details"
+      - sleep: 2000
+      - ai: "scroll down to see room prices"
+      - sleep: 2000
+      # Go back to search results
+      - ai: "tap back button to return to search results"
+      - sleep: 3000
+
+  - name: "Browse Hotel 5"
+    flow:
+      - ai: "scroll down randomly"
+      - sleep: 2000
+      - ai: "tap on any hotel"
+      - sleep: 3000
+      # Browse 15 hotel images
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      # Scroll down to see room details
+      - ai: "scroll down to see room details"
+      - sleep: 2000
+      - ai: "scroll down to see more room details"
+      - sleep: 2000
+      - ai: "scroll down to see room prices"
+      - sleep: 2000
+      # Go back to search results
+      - ai: "tap back button to return to search results"
+      - sleep: 3000
+
+  - name: "Browse Hotel 6"
+    flow:
+      - ai: "scroll down randomly"
+      - sleep: 2000
+      - ai: "tap on any hotel"
+      - sleep: 3000
+      # Browse 15 hotel images
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      # Scroll down to see room details
+      - ai: "scroll down to see room details"
+      - sleep: 2000
+      - ai: "scroll down to see more room details"
+      - sleep: 2000
+      - ai: "scroll down to see room prices"
+      - sleep: 2000
+      # Go back to search results
+      - ai: "tap back button to return to search results"
+      - sleep: 3000
+
+  - name: "Browse Hotel 7"
+    flow:
+      - ai: "scroll down randomly"
+      - sleep: 2000
+      - ai: "tap on any hotel"
+      - sleep: 3000
+      # Browse 15 hotel images
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      - ai: "tap right arrow to see next image"
+      - sleep: 1500
+      # Scroll down to see room details
+      - ai: "scroll down to see room details"
+      - sleep: 2000
+      - ai: "scroll down to see more room details"
+      - sleep: 2000
+      - ai: "scroll down to see room prices"
+      - sleep: 2000
+      # Go back to search results
+      - ai: "tap back button to return to search results"
+      - sleep: 3000 

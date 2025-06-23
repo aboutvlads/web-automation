@@ -1,0 +1,411 @@
+android:
+  # Using the deviceId you provided.
+  # This script assumes you are already on the booking.com hotel search results page.
+  deviceId: 98.98.125.9:29640
+
+tasks:
+  - name: "Browse hotel 1"
+    flow:
+      - ai: "tap on a hotel in the list"
+      - sleep: 4000
+      - ai: "tap on the hotel pictures to open the gallery"
+      - sleep: 2000
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "close the photo gallery"
+      - sleep: 1500
+      - ai: "scroll down to view the rooms"
+      - sleep: 2000
+      - ai: "scroll down to get more details about the rooms"
+      - sleep: 2000
+      - ai: "tap the back button to return to the search results"
+      - sleep: 3000
+
+  - name: "Browse hotel 2"
+    flow:
+      - ai: "tap on a hotel in the list"
+      - sleep: 4000
+      - ai: "tap on the hotel pictures to open the gallery"
+      - sleep: 2000
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "close the photo gallery"
+      - sleep: 1500
+      - ai: "scroll down to view the rooms"
+      - sleep: 2000
+      - ai: "scroll down to get more details about the rooms"
+      - sleep: 2000
+      - ai: "tap the back button to return to the search results"
+      - sleep: 3000
+
+  - name: "Browse hotel 3"
+    flow:
+      - ai: "tap on a hotel in the list"
+      - sleep: 4000
+      - ai: "tap on the hotel pictures to open the gallery"
+      - sleep: 2000
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "close the photo gallery"
+      - sleep: 1500
+      - ai: "scroll down to view the rooms"
+      - sleep: 2000
+      - ai: "scroll down to get more details about the rooms"
+      - sleep: 2000
+      - ai: "tap the back button to return to the search results"
+      - sleep: 3000
+
+  - name: "Browse hotel 4"
+    flow:
+      - ai: "tap on a hotel in the list"
+      - sleep: 4000
+      - ai: "tap on the hotel pictures to open the gallery"
+      - sleep: 2000
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "close the photo gallery"
+      - sleep: 1500
+      - ai: "scroll down to view the rooms"
+      - sleep: 2000
+      - ai: "scroll down to get more details about the rooms"
+      - sleep: 2000
+      - ai: "tap the back button to return to the search results"
+      - sleep: 3000
+
+  - name: "Browse hotel 5"
+    flow:
+      - ai: "tap on a hotel in the list"
+      - sleep: 4000
+      - ai: "tap on the hotel pictures to open the gallery"
+      - sleep: 2000
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "close the photo gallery"
+      - sleep: 1500
+      - ai: "scroll down to view the rooms"
+      - sleep: 2000
+      - ai: "scroll down to get more details about the rooms"
+      - sleep: 2000
+      - ai: "tap the back button to return to the search results"
+      - sleep: 3000
+
+  - name: "Browse hotel 6"
+    flow:
+      - ai: "tap on a hotel in the list"
+      - sleep: 4000
+      - ai: "tap on the hotel pictures to open the gallery"
+      - sleep: 2000
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "close the photo gallery"
+      - sleep: 1500
+      - ai: "scroll down to view the rooms"
+      - sleep: 2000
+      - ai: "scroll down to get more details about the rooms"
+      - sleep: 2000
+      - ai: "tap the back button to return to the search results"
+      - sleep: 3000
+
+  - name: "Browse hotel 7"
+    flow:
+      - ai: "tap on a hotel in the list"
+      - sleep: 4000
+      - ai: "tap on the hotel pictures to open the gallery"
+      - sleep: 2000
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "close the photo gallery"
+      - sleep: 1500
+      - ai: "scroll down to view the rooms"
+      - sleep: 2000
+      - ai: "scroll down to get more details about the rooms"
+      - sleep: 2000
+      - ai: "tap the back button to return to the search results"
+      - sleep: 3000
+
+  - name: "Browse hotel 8"
+    flow:
+      - ai: "tap on a hotel in the list"
+      - sleep: 4000
+      - ai: "tap on the hotel pictures to open the gallery"
+      - sleep: 2000
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "close the photo gallery"
+      - sleep: 1500
+      - ai: "scroll down to view the rooms"
+      - sleep: 2000
+      - ai: "scroll down to get more details about the rooms"
+      - sleep: 2000
+      - ai: "tap the back button to return to the search results"
+      - sleep: 3000
+
+  - name: "Browse hotel 9"
+    flow:
+      - ai: "tap on a hotel in the list"
+      - sleep: 4000
+      - ai: "tap on the hotel pictures to open the gallery"
+      - sleep: 2000
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "close the photo gallery"
+      - sleep: 1500
+      - ai: "scroll down to view the rooms"
+      - sleep: 2000
+      - ai: "scroll down to get more details about the rooms"
+      - sleep: 2000
+      - ai: "tap the back button to return to the search results"
+      - sleep: 3000
+
+  - name: "Browse hotel 10"
+    flow:
+      - ai: "tap on a hotel in the list"
+      - sleep: 4000
+      - ai: "tap on the hotel pictures to open the gallery"
+      - sleep: 2000
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "close the photo gallery"
+      - sleep: 1500
+      - ai: "scroll down to view the rooms"
+      - sleep: 2000
+      - ai: "scroll down to get more details about the rooms"
+      - sleep: 2000
+      - ai: "tap the back button to return to the search results"
+      - sleep: 3000
+
+  - name: "Browse hotel 11"
+    flow:
+      - ai: "tap on a hotel in the list"
+      - sleep: 4000
+      - ai: "tap on the hotel pictures to open the gallery"
+      - sleep: 2000
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "close the photo gallery"
+      - sleep: 1500
+      - ai: "scroll down to view the rooms"
+      - sleep: 2000
+      - ai: "scroll down to get more details about the rooms"
+      - sleep: 2000
+      - ai: "tap the back button to return to the search results"
+      - sleep: 3000
+
+  - name: "Browse hotel 12"
+    flow:
+      - ai: "tap on a hotel in the list"
+      - sleep: 4000
+      - ai: "tap on the hotel pictures to open the gallery"
+      - sleep: 2000
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "close the photo gallery"
+      - sleep: 1500
+      - ai: "scroll down to view the rooms"
+      - sleep: 2000
+      - ai: "scroll down to get more details about the rooms"
+      - sleep: 2000
+      - ai: "tap the back button to return to the search results"
+      - sleep: 3000
+
+  - name: "Browse hotel 13"
+    flow:
+      - ai: "tap on a hotel in the list"
+      - sleep: 4000
+      - ai: "tap on the hotel pictures to open the gallery"
+      - sleep: 2000
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "close the photo gallery"
+      - sleep: 1500
+      - ai: "scroll down to view the rooms"
+      - sleep: 2000
+      - ai: "scroll down to get more details about the rooms"
+      - sleep: 2000
+      - ai: "tap the back button to return to the search results"
+      - sleep: 3000
+
+  - name: "Browse hotel 14"
+    flow:
+      - ai: "tap on a hotel in the list"
+      - sleep: 4000
+      - ai: "tap on the hotel pictures to open the gallery"
+      - sleep: 2000
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "swipe left to see the next photo"
+      - sleep: 1200
+      - ai: "close the photo gallery"
+      - sleep: 1500
+      - ai: "scroll down to view the rooms"
+      - sleep: 2000
+      - ai: "scroll down to get more details about the rooms"
+      - sleep: 2000
+      - ai: "tap the back button to return to the search results"
+      - sleep: 3000
