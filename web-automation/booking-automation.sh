@@ -37,13 +37,40 @@ echo ""
 if ! command -v adb >/dev/null 2>&1; then
     echo "❌ ADB not found. Installing Android SDK tools..."
     
+    # Install required tools if not available
+    if ! command -v unzip >/dev/null 2>&1; then
+        echo "📦 Installing unzip..."
+        if command -v apt-get >/dev/null 2>&1; then
+            apt-get update -qq && apt-get install -y unzip wget curl
+        elif command -v yum >/dev/null 2>&1; then
+            yum install -y unzip wget curl
+        elif command -v apk >/dev/null 2>&1; then
+            apk add --no-cache unzip wget curl
+        else
+            echo "❌ Cannot install unzip. Please install manually: apt-get install unzip"
+            exit 1
+        fi
+    fi
+    
     # Create Android SDK directory
     mkdir -p /tmp/android-sdk/platform-tools
     
     # Download and install ADB
     cd /tmp
-    wget -q https://dl.google.com/android/repository/platform-tools-latest-linux.zip -O platform-tools.zip
-    unzip -q platform-tools.zip -d /tmp/android-sdk/
+    echo "📥 Downloading Android platform tools..."
+    if ! wget -q https://dl.google.com/android/repository/platform-tools-latest-linux.zip -O platform-tools.zip; then
+        echo "❌ Failed to download platform tools"
+        exit 1
+    fi
+    
+    echo "📦 Extracting platform tools..."
+    if ! unzip -q platform-tools.zip -d /tmp/android-sdk/; then
+        echo "❌ Failed to extract platform tools"
+        exit 1
+    fi
+    
+    # Clean up
+    rm -f platform-tools.zip
     
     # Add to PATH for this session
     export PATH="/tmp/android-sdk/platform-tools:$PATH"
@@ -51,6 +78,7 @@ if ! command -v adb >/dev/null 2>&1; then
     # Verify installation
     if ! command -v adb >/dev/null 2>&1; then
         echo "❌ Failed to install ADB. Please install Android SDK manually."
+        echo "💡 Try: apt-get install android-tools-adb"
         exit 1
     fi
     
