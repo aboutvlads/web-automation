@@ -457,15 +457,21 @@ else
     export ANDROID_SDK_ROOT="$PERSISTENT_ANDROID_SDK"
 fi
 
-# Use environment variables from Coolify if available, otherwise use defaults
+# Check if required environment variables are set
+if [ -z "$OPENAI_API_KEY" ]; then
+    echo "❌ Error: OPENAI_API_KEY environment variable not set"
+    echo "💡 Please set this in your Coolify environment variables"
+    exit 1
+fi
+
+# Use environment variables from Coolify (no hardcoded fallbacks for security)
 export OPENAI_BASE_URL="${OPENAI_BASE_URL:-https://openrouter.ai/api/v1}"
-export OPENAI_API_KEY="${OPENAI_API_KEY:-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}"
 export MIDSCENE_MODEL_NAME="${MIDSCENE_MODEL_NAME:-qwen/qwen2.5-vl-72b-instruct}"
 export MIDSCENE_USE_QWEN_VL="${MIDSCENE_USE_QWEN_VL:-1}"
 
 echo "🔑 Using OpenRouter API with Qwen VL model"
 echo "🔧 Android SDK: $ANDROID_SDK_ROOT"
-echo "🔐 API Key: ${OPENAI_API_KEY:0:20}...${OPENAI_API_KEY: -10}"
+echo "🔐 API Key: ${OPENAI_API_KEY:0:10}...${OPENAI_API_KEY: -6} (from environment)"
 
 # Run the Midscene CLI
 npx --yes @midscene/cli "$YAML_FILE"
