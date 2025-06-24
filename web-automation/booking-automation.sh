@@ -33,56 +33,79 @@ echo "🏙️  City: $CITY"
 echo "📄 Generated file: $YAML_FILE"
 echo ""
 
-# Check if ADB is available
-if ! command -v adb >/dev/null 2>&1; then
-    echo "❌ ADB not found. Installing Android SDK tools..."
+# Define persistent Android SDK path
+PERSISTENT_ANDROID_SDK="/opt/android-sdk"
+ADB_INSTALLED_FLAG="/opt/android-sdk/.adb_installed"
+
+# Check if ADB is already installed persistently
+if [ -f "$ADB_INSTALLED_FLAG" ] && [ -x "$PERSISTENT_ANDROID_SDK/platform-tools/adb" ]; then
+    echo "✅ ADB already installed, using existing installation"
+    export PATH="$PERSISTENT_ANDROID_SDK/platform-tools:$PATH"
+    export ANDROID_SDK_ROOT="$PERSISTENT_ANDROID_SDK"
+elif ! command -v adb >/dev/null 2>&1; then
+    echo "❌ ADB not found. Installing Android SDK tools permanently..."
     
-    # Install required tools if not available
-    if ! command -v unzip >/dev/null 2>&1; then
-        echo "📦 Installing unzip..."
-        if command -v apt-get >/dev/null 2>&1; then
-            apt-get update -qq && apt-get install -y unzip wget curl
-        elif command -v yum >/dev/null 2>&1; then
-            yum install -y unzip wget curl
-        elif command -v apk >/dev/null 2>&1; then
-            apk add --no-cache unzip wget curl
-        else
-            echo "❌ Cannot install unzip. Please install manually: apt-get install unzip"
+    # Install required system packages once
+    echo "📦 Installing system dependencies..."
+    if command -v apt-get >/dev/null 2>&1; then
+        apt-get update -qq && apt-get install -y unzip wget curl android-tools-adb || true
+    elif command -v yum >/dev/null 2>&1; then
+        yum install -y unzip wget curl || true
+    elif command -v apk >/dev/null 2>&1; then
+        apk add --no-cache unzip wget curl android-tools || true
+    fi
+    
+    # Try system ADB first
+    if command -v adb >/dev/null 2>&1; then
+        echo "✅ Using system ADB installation"
+        # Create flag to skip installation next time
+        mkdir -p "$(dirname "$ADB_INSTALLED_FLAG")"
+        touch "$ADB_INSTALLED_FLAG"
+    else
+        echo "📥 System ADB not available, installing Android SDK..."
+        
+        # Create persistent Android SDK directory
+        mkdir -p "$PERSISTENT_ANDROID_SDK/platform-tools"
+        
+        # Download and install ADB to persistent location
+        cd /tmp
+        echo "📥 Downloading Android platform tools..."
+        if ! wget -q https://dl.google.com/android/repository/platform-tools-latest-linux.zip -O platform-tools.zip; then
+            echo "❌ Failed to download platform tools"
             exit 1
         fi
+        
+        echo "📦 Extracting platform tools to $PERSISTENT_ANDROID_SDK..."
+        if ! unzip -q platform-tools.zip -d "$PERSISTENT_ANDROID_SDK/"; then
+            echo "❌ Failed to extract platform tools"
+            exit 1
+        fi
+        
+        # Clean up
+        rm -f platform-tools.zip
+        
+        # Make ADB executable
+        chmod +x "$PERSISTENT_ANDROID_SDK/platform-tools/adb"
+        
+        # Add to PATH
+        export PATH="$PERSISTENT_ANDROID_SDK/platform-tools:$PATH"
+        export ANDROID_SDK_ROOT="$PERSISTENT_ANDROID_SDK"
+        
+        # Create installation flag
+        touch "$ADB_INSTALLED_FLAG"
+        echo "$(date): ADB installed to $PERSISTENT_ANDROID_SDK" > "$ADB_INSTALLED_FLAG"
+        
+        # Verify installation
+        if ! command -v adb >/dev/null 2>&1; then
+            echo "❌ Failed to install ADB. Please install Android SDK manually."
+            echo "💡 Try: apt-get install android-tools-adb"
+            exit 1
+        fi
+        
+        echo "✅ ADB installed successfully to $PERSISTENT_ANDROID_SDK!"
     fi
-    
-    # Create Android SDK directory
-    mkdir -p /tmp/android-sdk/platform-tools
-    
-    # Download and install ADB
-    cd /tmp
-    echo "📥 Downloading Android platform tools..."
-    if ! wget -q https://dl.google.com/android/repository/platform-tools-latest-linux.zip -O platform-tools.zip; then
-        echo "❌ Failed to download platform tools"
-        exit 1
-    fi
-    
-    echo "📦 Extracting platform tools..."
-    if ! unzip -q platform-tools.zip -d /tmp/android-sdk/; then
-        echo "❌ Failed to extract platform tools"
-        exit 1
-    fi
-    
-    # Clean up
-    rm -f platform-tools.zip
-    
-    # Add to PATH for this session
-    export PATH="/tmp/android-sdk/platform-tools:$PATH"
-    
-    # Verify installation
-    if ! command -v adb >/dev/null 2>&1; then
-        echo "❌ Failed to install ADB. Please install Android SDK manually."
-        echo "💡 Try: apt-get install android-tools-adb"
-        exit 1
-    fi
-    
-    echo "✅ ADB installed successfully!"
+else
+    echo "✅ ADB found in system PATH"
 fi
 
 # Test ADB connection
@@ -421,22 +444,30 @@ echo "⏱️  Estimated time: ~15-20 minutes"
 echo "📊 Monitor progress: tail -f midscene_run/log/ai-call.log"
 echo ""
 
-# Set Android SDK path
-if [ -d "/tmp/android-sdk" ]; then
-    export ANDROID_SDK_ROOT="/tmp/android-sdk"
-    export PATH="/tmp/android-sdk/platform-tools:$PATH"
+# Set Android SDK path (use persistent installation if available)
+if [ -d "$PERSISTENT_ANDROID_SDK" ]; then
+    export ANDROID_SDK_ROOT="$PERSISTENT_ANDROID_SDK"
+    export PATH="$PERSISTENT_ANDROID_SDK/platform-tools:$PATH"
 elif [ -d "/opt/homebrew/Caskroom/android-platform-tools/36.0.0" ]; then
     export ANDROID_SDK_ROOT="/opt/homebrew/Caskroom/android-platform-tools/36.0.0"
-else
+elif [ -d "/tmp/android-sdk" ]; then
     export ANDROID_SDK_ROOT="/tmp/android-sdk"
+    export PATH="/tmp/android-sdk/platform-tools:$PATH"
+else
+    export ANDROID_SDK_ROOT="$PERSISTENT_ANDROID_SDK"
 fi
 
-# Run the Midscene CLI with all required environment variables
-ANDROID_SDK_ROOT="$ANDROID_SDK_ROOT" \
-OPENAI_BASE_URL="https://openrouter.ai/api/v1" \
-OPENAI_API_KEY="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" \
-MIDSCENE_MODEL_NAME="qwen/qwen2.5-vl-72b-instruct" \
-MIDSCENE_USE_QWEN_VL=1 \
+# Use environment variables from Coolify if available, otherwise use defaults
+export OPENAI_BASE_URL="${OPENAI_BASE_URL:-https://openrouter.ai/api/v1}"
+export OPENAI_API_KEY="${OPENAI_API_KEY:-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}"
+export MIDSCENE_MODEL_NAME="${MIDSCENE_MODEL_NAME:-qwen/qwen2.5-vl-72b-instruct}"
+export MIDSCENE_USE_QWEN_VL="${MIDSCENE_USE_QWEN_VL:-1}"
+
+echo "🔑 Using OpenRouter API with Qwen VL model"
+echo "🔧 Android SDK: $ANDROID_SDK_ROOT"
+echo "🔐 API Key: ${OPENAI_API_KEY:0:20}...${OPENAI_API_KEY: -10}"
+
+# Run the Midscene CLI
 npx --yes @midscene/cli "$YAML_FILE"
 
 echo ""
