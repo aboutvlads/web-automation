@@ -33,7 +33,31 @@ echo "🏙️  City: $CITY"
 echo "📄 Generated file: $YAML_FILE"
 echo ""
 
-# Test ADB connection first
+# Check if ADB is available
+if ! command -v adb >/dev/null 2>&1; then
+    echo "❌ ADB not found. Installing Android SDK tools..."
+    
+    # Create Android SDK directory
+    mkdir -p /tmp/android-sdk/platform-tools
+    
+    # Download and install ADB
+    cd /tmp
+    wget -q https://dl.google.com/android/repository/platform-tools-latest-linux.zip -O platform-tools.zip
+    unzip -q platform-tools.zip -d /tmp/android-sdk/
+    
+    # Add to PATH for this session
+    export PATH="/tmp/android-sdk/platform-tools:$PATH"
+    
+    # Verify installation
+    if ! command -v adb >/dev/null 2>&1; then
+        echo "❌ Failed to install ADB. Please install Android SDK manually."
+        exit 1
+    fi
+    
+    echo "✅ ADB installed successfully!"
+fi
+
+# Test ADB connection
 echo "🔍 Testing ADB connection..."
 if ! adb devices | grep -q "$DEVICE_ID.*device"; then
     echo "⚠️  Device not found. Attempting to connect..."
@@ -369,8 +393,18 @@ echo "⏱️  Estimated time: ~15-20 minutes"
 echo "📊 Monitor progress: tail -f midscene_run/log/ai-call.log"
 echo ""
 
+# Set Android SDK path
+if [ -d "/tmp/android-sdk" ]; then
+    export ANDROID_SDK_ROOT="/tmp/android-sdk"
+    export PATH="/tmp/android-sdk/platform-tools:$PATH"
+elif [ -d "/opt/homebrew/Caskroom/android-platform-tools/36.0.0" ]; then
+    export ANDROID_SDK_ROOT="/opt/homebrew/Caskroom/android-platform-tools/36.0.0"
+else
+    export ANDROID_SDK_ROOT="/tmp/android-sdk"
+fi
+
 # Run the Midscene CLI with all required environment variables
-ANDROID_SDK_ROOT="/opt/homebrew/Caskroom/android-platform-tools/36.0.0" \
+ANDROID_SDK_ROOT="$ANDROID_SDK_ROOT" \
 OPENAI_BASE_URL="https://openrouter.ai/api/v1" \
 OPENAI_API_KEY="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" \
 MIDSCENE_MODEL_NAME="qwen/qwen2.5-vl-72b-instruct" \
