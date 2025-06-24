@@ -32,20 +32,20 @@ app.post('/api/start-automation', async (req, res) => {
             runningProcesses.delete(processKey);
         }
         
-        // Path to the automation script
-        const scriptPath = path.join(__dirname, '..', 'booking-automation.sh');
-        
-        // Check if script exists
-        if (!fs.existsSync(scriptPath)) {
-            return res.status(500).json({ error: 'Automation script not found' });
-        }
-        
-        // Spawn the automation process
-        const automationProcess = spawn('./booking-automation.sh', [deviceId, city], {
-            cwd: path.join(__dirname, '..'),
-            detached: true,
-            stdio: ['ignore', 'pipe', 'pipe']
-        });
+        // Path to the automation script (now in the same directory)
+const scriptPath = path.join(__dirname, 'booking-automation.sh');
+
+// Check if script exists
+if (!fs.existsSync(scriptPath)) {
+    return res.status(500).json({ error: 'Automation script not found' });
+}
+
+// Spawn the automation process
+const automationProcess = spawn('./booking-automation.sh', [deviceId, city], {
+    cwd: __dirname,
+    detached: true,
+    stdio: ['ignore', 'pipe', 'pipe']
+});
         
         // Store the process
         runningProcesses.set(processKey, automationProcess);
