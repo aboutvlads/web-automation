@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking Automation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 600;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+        }
+        
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        
+        .logs {
+            margin-top: 20px;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            display: none;
+        }
+        
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span class="emoji">🏨</span>Hotel Automation</h1>
+        
+        <form id="automationForm">
+            <div class="form-group">
+                <label for="deviceId"><span class="emoji">📱</span>Device ID:</label>
+                <input type="text" id="deviceId" name="deviceId" value="98.98.125.9:24142" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="city"><span class="emoji">🏙️</span>City:</label>
+                <select id="city" name="city" required>
+                    <option value="">Select a city...</option>
+                    <option value="Samui">Samui, Thailand 🏝️</option>
+                    <option value="New York">New York, USA 🗽</option>
+                    <option value="Paris">Paris, France 🗼</option>
+                    <option value="London">London, UK 🏰</option>
+                    <option value="Tokyo">Tokyo, Japan 🗾</option>
+                    <option value="Dubai">Dubai, UAE 🏜️</option>
+                    <option value="Bangkok">Bangkok, Thailand 🏛️</option>
+                    <option value="Singapore">Singapore 🌆</option>
+                    <option value="Hong Kong">Hong Kong 🏙️</option>
+                    <option value="Bali">Bali, Indonesia 🌺</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn" id="startBtn">
+                <span class="emoji">🚀</span>Start Automation
+            </button>
+        </form>
+        
+        <div id="status" class="status"></div>
+        <div id="logs" class="logs"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('automationForm');
+        const startBtn = document.getElementById('startBtn');
+        const status = document.getElementById('status');
+        const logs = document.getElementById('logs');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const deviceId = document.getElementById('deviceId').value;
+            const city = document.getElementById('city').value;
+            
+            if (!deviceId || !city) {
+                showStatus('Please fill in all fields', 'error');
+                return;
+            }
+            
+            startBtn.disabled = true;
+            startBtn.innerHTML = '<span class="emoji">⏳</span>Starting...';
+            
+            try {
+                const response = await fetch('/api/start-automation', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ deviceId, city })
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok) {
+                    showStatus(`✅ Automation started for ${city}! Estimated time: 15-20 minutes`, 'success');
+                    startLogMonitoring();
+                } else {
+                    showStatus(`❌ Error: ${result.error}`, 'error');
+                }
+            } catch (error) {
+                showStatus(`❌ Network error: ${error.message}`, 'error');
+            }
+            
+            startBtn.disabled = false;
+            startBtn.innerHTML = '<span class="emoji">🚀</span>Start Automation';
+        });
+
+        function showStatus(message, type) {
+            status.textContent = message;
+            status.className = `status ${type}`;
+            status.style.display = 'block';
+        }
+
+        function startLogMonitoring() {
+            logs.style.display = 'block';
+            logs.innerHTML = 'Connecting to logs...\n';
+            
+            // This would connect to a WebSocket or Server-Sent Events for real-time logs
+            // For now, just show a placeholder
+            setTimeout(() => {
+                logs.innerHTML += 'Automation started successfully!\n';
+                logs.innerHTML += 'Monitor progress on your server...\n';
+            }, 1000);
+        }
+    </script>
+</body>
+</html> 
